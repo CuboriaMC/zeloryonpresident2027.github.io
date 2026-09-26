@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b70">
+  <title>Zeloryon 2027 — Le programme très sérieux</title>
+  <meta name="description" content="Une campagne parodique et une boîte à propositions de lois absurdes.">
+  <link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">★ ZELORYON 2027</div>
+    <span>République de la bonne humeur</span>
+  </header>
+
+  <div class="adminbar">Mode modération actif · <button id="logout" class="plain" type="button">Se déconnecter</button></div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Élection présidentielle · campagne parodique</div>
+        <h1>Un monde<br><em>sans pression.</em></h1>
+        <p>Pour des débats de fond sur les céréales, la chocolatine et les sujets que personne n’osait mettre à l’ordre du jour.</p>
+        <span class="stamp">Promesses garanties 100 % absurdes</span>
+        <span class="countdown" id="countdown">Compte à rebours jusqu’au second tour : <strong>chargement…</strong></span>
+      </div>
+      <div class="hero-photo"><img src="/assets/portrait.jpg" alt="Portrait de Zeloryon"></div>
+    </section>
+
+    <section class="wrap billboard">
+      <img src="/assets/affiche.png" alt="Affiche originale Votez pour Zeloryon, élection présidentielle 2027">
+      <div>
+        <span class="section-label">L’affiche officielle</span>
+        <h2>Un programme à prendre avec une pincée de sel.</h2>
+        <p class="intro">L’affiche de campagne, telle qu’elle a été envoyée, sans la modifier. On y retrouve deux engagements majeurs : le lait avant les céréales et la chocolatine pour tout le monde.</p>
+        <span class="pill">🥣 Lait d’abord</span><span class="pill">🥐 Chocolatine</span>
+      </div>
+    </section>
+
+    <section class="proposal-area">
+      <div class="wrap">
+        <span class="section-label">La démocratie du post-it</span>
+        <h2>La caisse à propositions de loi</h2>
+        <div class="proposal-grid">
+          <form id="proposalForm" class="formbox">
+            <strong>Déposez votre idée (même très mauvaise).</strong>
+            <label for="title">Titre de la loi</label>
+            <input id="title" maxlength="90" required placeholder="Ex. Sieste obligatoire le lundi">
+            <label for="body">Votre proposition</label>
+            <textarea id="body" maxlength="500" required placeholder="Expliquez cette grande avancée pour la nation…"></textarea>
+            <button class="primary" type="submit">Déposer ma proposition</button>
+            <p id="message" class="status muted" role="status"></p>
+            <p class="muted">Les propositions sont publiques et peuvent être corrigées ou retirées par la modération.</p>
+          </form>
+          <div id="notes" class="notes" aria-live="polite"><p class="empty">Chargement des propositions…</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <span class="section-label">Le candidat, les coulisses</span>
+      <h2>Un programme validé par le chat.</h2>
+      <div class="photos">
+        <img src="/assets/chat.jpg" alt="Zeloryon avec un chat devant un miroir">
+        <img src="/assets/affiche.png" alt="L’affiche originale de campagne, présentée une seconde fois">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Zeloryon 2027 · Campagne humoristique, sans affiliation officielle.</footer>
+
+  <section id="electionEnd" class="election-end" hidden aria-labelledby="endTitle">
+    <div class="election-end-inner">
+      <span class="small-label">Zeloryon 2027 · fin de campagne parodique</span>
+      <h2 id="endTitle">Merci. Et désolé, j’ai perdu.</h2>
+      <p class="thanks">Merci à toutes celles et ceux qui ont glissé une idée, un sourire ou un peu d’espoir dans cette aventure.</p>
+      <p class="poem">« Les urnes ont refermé leurs ailes ; il me reste vos voix comme des étoiles, et la douceur d’avoir rêvé avec vous. »</p>
+      <p class="disclaimer">Message fictif de cette campagne humoristique — il ne présente aucun résultat électoral officiel.</p>
+    </div>
+  </section>
+
+  <dialog class="dialog" id="login">
+    <form id="loginForm">
+      <h2>Modération</h2>
+      <p>Saisissez le mot de passe pour gérer les post-it.</p>
+      <input type="password" id="password" autocomplete="current-password" aria-label="Mot de passe" required>
+      <p id="loginmsg" class="muted" role="alert"></p>
+      <div class="row">
+        <button class="plain" id="cancelLogin" type="button">Annuler</button>
+        <button class="primary" id="loginbutton" type="submit">Entrer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="dialog" id="edit">
+    <form id="editForm">
+      <h2>Corriger le post-it</h2>
+      <label for="editTitle">Titre</label>
+      <input id="editTitle" maxlength="90" required>
+      <label for="editBody">Texte</label>
+      <textarea id="editBody" maxlength="500" required></textarea>
+      <p id="editmsg" role="alert"></p>
+      <div class="row">
+        <button class="plain" id="cancelEdit" type="button">Annuler</button>
+        <button class="primary" id="savebutton" type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
